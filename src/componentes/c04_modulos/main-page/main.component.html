@@ -1,0 +1,93 @@
+<hr>
+<h1>Página Principal  Módulos</h1>
+
+<app-mi-comp-input></app-mi-comp-input>
+
+<app-mi-comp-output></app-mi-comp-output>
+
+<div class="row">
+    <div class="col">
+        <h3>Arreglo de Personajes</h3>
+        <hr>
+        <ul>
+            <li *ngFor="let per of lPersonas">
+                {{per.nombres}} - {{per.apPaterno}}- {{per.apMaterno}} -{{per.edad | number}}
+            </li>
+
+        </ul>
+    </div>
+</div> 
+
+
+<!-- Registro persona_n1-->
+<div >
+    <h3>Registro Personajes n1</h3>
+    <table border="1">
+        <tr><td>nombres</td><td> :{{persona_n1.nombres}}:</td></tr>
+        <tr><td>apMaterno </td><td>:{{persona_n1.apMaterno}}:</td></tr>
+        <tr><td>apPaterno </td><td>:{{persona_n1.apPaterno}}:</td></tr>
+        <tr><td>edad </td><td>:{{persona_n1.edad}}:</td></tr>
+    </table>
+</div>
+
+<hr>
+<hr>
+<div class="row">
+    <div class="col">
+        <h3>Utilizando NgModel</h3>
+        <form>
+        <table border="1">
+            <tr><td>Run</td>
+                <td>
+                <!-- () enviar datos al TS   -->
+                <!-- [] rescatar datos del TS -->
+                    <input type="text" name="xx" placeholder="Run" [(ngModel)]="persona_n1.run"/>
+                </td>
+            </tr>
+            <tr><td>nombres</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Nombre" [(ngModel)]="persona_n1.nombres"/>
+                </td>
+            </tr>
+            <tr><td>Paterno</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Ape.Paterno" [(ngModel)]="persona_n1.apPaterno"/>
+                </td>
+            </tr>
+            <tr><td>Materno</td>
+                <td>
+                    <input type="text" name="xx" placeholder="Ape.Materno" [(ngModel)]="persona_n1.apMaterno"/>
+                </td>
+            </tr>
+            <tr><td>Edad</td>
+                <td>
+                    <input type="text"  name="edad" placeholder="Edad" [(ngModel)]="persona_n1.edad"/>
+                </td>
+            </tr>
+        </table>
+        <!--Por medio del Button ejecutamos el agregarNgModel-->
+        <button (click)="agregarNgModel()" >Agregar NgModel</button>
+        </form>
+    </div>    
+</div>
+
+<!--envío a la variable lista_personas la data lPersonas-->
+<!--envío a la variable lista_personas_data la data lPersonas-->
+<app-mi-comp-input
+        [lista_personas]="lPersonas"
+        [lista_personas_data]="lPersonas"
+     ></app-mi-comp-input>
+
+     <app-mi-comp-output
+    (onNuevaPersona)="agregarPersonaOutput($event)"
+   ></app-mi-comp-output>
+
+   <app-mi-comp-output
+   (onNuevaPersona)="agregarPersonaOutput($event)"
+  ></app-mi-comp-output>
+  <app-mi-comp-output
+  (onNuevaPersona)="agregarPersonaOutput($event)"
+ ></app-mi-comp-output>
+ <app-mi-comp-output
+ (onNuevaPersona)="agregarPersonaOutput($event)"
+></app-mi-comp-output>
